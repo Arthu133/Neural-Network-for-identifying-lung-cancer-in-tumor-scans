@@ -1,0 +1,32 @@
+cff-version: 1.0.1
+message: Please cite this software using these metadata.
+title: Cancer Detection App
+authors:
+  - family-names: Henrique
+    given-names: Arthur 
+  - family-names: Pedro
+    given-names: João
+  - family-names: Fonseca
+    given-names: Bruno
+  - family-names: Amaral
+    given-names: Felipe
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Cota
+    given-names: Henrique
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Manso
+    given-names: Alexei
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: de Lima
+    given-names: Fatima
+keywords:
+  - Câncer
+  - Software
+  - Detectação
+repository-code: https://github.com/ICEI-PUC-Minas-PMGCC-TI/ti6-cancerdetectionapp/
+license: CC-BY-4.0
+version: 1.0.0
+date-released: 2024-06-21

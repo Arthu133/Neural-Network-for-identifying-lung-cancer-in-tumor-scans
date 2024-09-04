@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Detection App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        #selected-image {
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cancer Detection App</h1>
+        <input type="file" id="file-input" accept="image/*">
+        <button onclick="uploadImage(event)">Enviar Imagem</button>
+        <div id="result"></div>
+        <img id="selected-image" src="#" alt="Enter Image" style="display:none;">
+    </div>
+
+    <script>
+        function uploadImage() {
+            event.preventDefault();
+            console.log("img enviadaaaa")
+            var fileInput = document.getElementById('file-input');
+            var file = fileInput.files[0];
+            var formData = new FormData();
+            formData.append('image', file);
+
+            fetch('http://localhost:5000/detect-cancer', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                displayResult(data);
+                console.log(data)
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+        }
+
+        function displayResult(data) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h2>Results:</h2>
+                <p>${data.type}</p>
+            `;
+        }
+
+    </script>
+</body>
+</html>
